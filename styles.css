@@ -24,13 +24,18 @@ main.container {
   justify-content: center;
 }
 
-div {
+div.key {
   margin: 0 1.5rem;
   color: #d9d7d7;
   font-size: 30px;
   border: 2px solid #838383;
   padding: .5rem 1.5rem;
   text-align: center;
+  cursor: pointer;
+  transition: border .2s ease-in;
+}
+div.key:hover {
+  border-color: #294c6e;
 }
 
 span {

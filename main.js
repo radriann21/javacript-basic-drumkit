@@ -1,24 +1,34 @@
 const allKeys = document.querySelectorAll('.key')
 
 const soundsObject = {
-  'A': '/sounds/boom.wav',
-  'S': '/sounds/clap.wav',
-  'D': '/sounds/hihat.wav',
-  'F': '/sounds/kick.wav',
-  'G': '/sounds/openhat.wav',
-  'H': '/sounds/ride.wav',
-  'J': '/sounds/snare.wav',
-  'K': '/sounds/tink.wav',
-  'L': '/sounds/tom.wav'
+  'a': '/sounds/boom.wav',
+  's': '/sounds/clap.wav',
+  'd': '/sounds/hihat.wav',
+  'f': '/sounds/kick.wav',
+  'g': '/sounds/openhat.wav',
+  'h': '/sounds/ride.wav',
+  'j': '/sounds/snare.wav',
+  'k': '/sounds/tink.wav',
+  'l': '/sounds/tom.wav'
 }
+
+
+function playKey(key) {
+  if (soundsObject[key]) {
+    const audio = new Audio(soundsObject[key])
+    audio.play()
+  }
+}
+
+document.addEventListener('keydown', (evt) => {
+  let keyName = evt.key
+  playKey(keyName)
+})
 
 allKeys.forEach(element => {
   element.addEventListener('click', (evt) => {
     const keyValue = evt.currentTarget.dataset.key
-    
-    if (soundsObject[keyValue]) {
-      const audio = new Audio(soundsObject[keyValue])
-      audio.play()
-    }
+    playKey(keyValue)
   })
 })
+
