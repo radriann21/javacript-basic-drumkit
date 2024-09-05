@@ -16,6 +16,7 @@ const soundsObject = {
 function playKey(key) {
   if (soundsObject[key]) {
     const audio = new Audio(soundsObject[key])
+    audio.currentTime = 0
     audio.play()
   }
 }
@@ -31,4 +32,3 @@ allKeys.forEach(element => {
     playKey(keyValue)
   })
 })
-
